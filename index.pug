@@ -1,0 +1,24 @@
+#app
+  .phone
+    .calender
+      .year 2019年十月
+      .head
+        .tag(v-for="tag in tags") {{tag}}
+      .body
+        .daybox(v-for="(day,day_id) in days" ,
+                :class="day_id==selected_day?'active':''" , 
+                @click="selected_day=day_id",
+                :style="get_pan(day_id)") 
+          .infos 
+            .num {{day.number}}
+            .lunar {{lunar(day.number+lunar_pan)}}
+          .eventdot(:class="{ has_event : day.events.length>0 }")
+      transition-group.todos(tag="ul",name="fade",mode="out-in")
+        li.items(v-for="(todo,todo_id) in now_events" ,:key="todo")
+          .time {{todo.time}}
+          .title {{todo.title}}
+          .remove_btn(@click="now_events.splice(todo_id,1)") X
+  .form
+    input(placeholder="事件標題" ,v-model="new_item.title")
+    input(placeholder="時間" ,v-model="new_item.time")
+    button(@click="add_item()") 加入

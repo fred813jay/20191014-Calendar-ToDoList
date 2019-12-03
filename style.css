@@ -1,0 +1,162 @@
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.phone {
+  width: 360px;
+  height: 560px;
+  background-color: #fff;
+}
+
+.phone .year {
+  background-color: #f3f3f3;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.phone .head, .phone .body {
+  background-color: #f3f3f3;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  padding-bottom: 5px;
+}
+
+.phone .head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 5px;
+}
+
+.phone .head .tag {
+  width: calc(100%/7);
+  text-align: center;
+  font-size: 12px;
+}
+
+.phone .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.phone .body .daybox {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: calc(100%/7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0px;
+}
+
+.phone .body .daybox.active .infos {
+  border-radius: 50%;
+  background-color: #222;
+  color: white;
+}
+
+.phone .body .daybox .infos {
+  text-align: center;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.phone .body .daybox .infos .num {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.phone .body .daybox .infos .lunar {
+  font-size: 12px;
+}
+
+.phone .body .daybox .eventdot {
+  width: 6px;
+  height: 6px;
+  background-color: #f24;
+  border-radius: 50%;
+  margin-top: 5px;
+  opacity: 0;
+}
+
+.phone .body .daybox .eventdot.has_event {
+  opacity: 1;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  padding: 3px 10px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  height: 36px;
+  position: relative;
+}
+
+.items .time, .items .title {
+  padding: 4px 10px;
+}
+
+.items .time {
+  width: 55px;
+  border-right: solid 2px;
+  border-color: #3ca9f2;
+}
+
+.items .remove_btn {
+  position: absolute;
+  margin-left: 330px;
+  color: red;
+  cursor: pointer;
+}
+
+.fade-enter-active, .fade-leave-active {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+/*# sourceMappingURL=style.css.map */

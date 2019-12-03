@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>20191014-IOS月曆&TodoList</title>
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div id="app">
+  <div class="phone">
+    <div class="calender">
+      <div class="year">2019年十月</div>
+      <div class="head">
+        <div class="tag" v-for="tag in tags">{{tag}}</div>
+      </div>
+      <div class="body">
+        <div class="daybox" v-for="(day,day_id) in days" :class="day_id==selected_day?'active':''" @click="selected_day=day_id" :style="get_pan(day_id)"> 
+          <div class="infos"> 
+            <div class="num">{{day.number}}</div>
+            <div class="lunar">{{lunar(day.number+lunar_pan)}}</div>
+          </div>
+          <div class="eventdot" :class="{ has_event : day.events.length&gt;0 }"></div>
+        </div>
+      </div>
+      <transition-group class="todos" tag="ul" name="fade" mode="out-in">
+        <li class="items" v-for="(todo,todo_id) in now_events" :key="todo">
+          <div class="time">{{todo.time}}</div>
+          <div class="title">{{todo.title}}</div>
+          <div class="remove_btn" @click="now_events.splice(todo_id,1)">X</div>
+        </li>
+      </transition-group>
+    </div>
+  </div>
+  <div class="form">
+    <input placeholder="事件標題" v-model="new_item.title">
+    <input placeholder="時間" v-model="new_item.time">
+    <button @click="add_item()">加入</button>
+  </div>
+</div>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
+<script  src="./script.js"></script>
+
+</body>
+</html>
